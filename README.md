@@ -1,5 +1,5 @@
 # PControl
-Python script to control one's PC using Gmail
+Python script to control one's PC using Gmail.
 Requirements -
 2 Gmail ids, python 3.5 or 3.5+
 The user needs two E-mail ids. One for the PC and another by which he will send commands.
