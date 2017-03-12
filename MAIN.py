@@ -32,12 +32,12 @@ while(1):
     fo_obj.write(str(prev_id))
     fo_obj.close()
     wait_sec(5)
-    data = M.uid('search', None, 'FROM '+uemail) #search and return uids
+    result, data = M.uid('search', None, 'FROM '+uemail) #search and return uids
     st=str(data[0],'utf-8')
     if(len(st)<=0):
         continue
     latest_email_uid = data[0].split()[-1]
-    data = M.uid('fetch', latest_email_uid, '(RFC822)')
+    result, data = M.uid('fetch', latest_email_uid, '(RFC822)')
     raw_email = data[0][1]
     email_message = email.message_from_bytes(raw_email)
     def get_text_block(email_message_instance):
