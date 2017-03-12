@@ -3,16 +3,19 @@ import email
 import subprocess
 import time
 import os
-import shlex
+import smtplib
 def wait_sec(t):
     time.sleep(t)
 M = imaplib.IMAP4_SSL("imap.gmail.com", 993)
+smtpObj = smtplib.SMTP_SSL('smtp.gmail.com', 465)
 uemail=input("Your E-mail address(for sending commands):- ")
 while(1):
     try:
         cmail = input("Email address for PC:- ")
         password = getpass.getpass()
         M.login(cmail, password)
+        smtpObj.ehlo()
+        smtpObj.login(cmail,password)
         print("Logged in Successfully as "+cmail)
         break
     except imaplib.IMAP4.error:
@@ -50,8 +53,11 @@ while(1):
      msg=get_first_text_block(email_message)
      print("Command -\n"+msg)
      p = subprocess.Popen(msg, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+     OUT="Output for "+"\""+msg+"\" :-\n"
      for line in p.stdout.readlines():
-      print (line)
+       OUT=OUT+line.decode('utf-8')
+     smtpObj.sendmail(cmail,uemail,'Subject: '+msg+'\n'+OUT)
      prev_id=str(latest_email_uid,'utf-8')
+smtpObj.quit()
 M.close()
 M.logout()
