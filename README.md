@@ -1,2 +1,2 @@
 # PControl
-To control one's PC using E-mail
+Python program to control one's PC using E-mail
