@@ -1,7 +1,7 @@
 # PControl  
-Python script to control one's PC using Gmail. 
-Note:- Read completely before starting.
-Requirements -  
+Python script to control one's PC using Gmail.   
+Note:- Read completely before starting.  
+Requirements -    
 2 Gmail ids, python 3.5 or 3.5+ .  
 Step 1 - Create two accounts in GMail. One for the computer(In this, the computer will be receiving commands and sending output to the user, Let's call this mail as cmail) and the other for yourself(This, you will be using to send commands to the computer and for receiving output,Let's call this mail as uemail,you can skip uemail creation, if you already have a gmail account.)   
 Step 2 - After successfully creating the above two accounts, Sign in with your cmail account and then go to Top Right corner and Click on the button(Where you see your profile picture)->My Account->"Connected apps and sites".Then scroll down and Enable "Allow Less Secure Apps".  
