@@ -78,6 +78,7 @@ while(1):
          
      print("Command -\n"+msg2)
      p = subprocess.Popen(msg2, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+     #print (msg)
      OUT="Output for "+"\""+msg2+"\" :-\n"
      stats="\nExecution incomplete"
      for line in p.stdout.readlines():
